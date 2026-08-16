@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ATM.Domain.Models
 {
-    public class LoanStatuscs
+    public class LoanRequest
     {
     }
 }
