@@ -9,13 +9,23 @@ namespace ATM.Domain.Models
     public abstract class User
     {
         public Guid Id { get;} = Guid.NewGuid();
-        public string UserName { get; }
-        public string Email { get; set; }
-        private string Password { get; set; }
-        public string PasswordHash { get; set; }
-        public int? VerificationCode { get; set; } = default;
-        public bool IsEmailVerified { get; set; }= false;
-        public DateTime? VerificationCodeExpiresAt { get; private set; }
+        public  string UserName { get; }
+        public string PasswordHash { get;}
+
+
+
+        protected User(string username, string passwordHash)
+        {
+            if (string.IsNullOrWhiteSpace(username))
+                throw new ArgumentException("Username cannot be empty.", nameof(username));
+            if (username.Length < 3 || username.Length > 20)
+                throw new ArgumentException("Username must be between 3 and 20 characters.", nameof(username));
+            if (string.IsNullOrWhiteSpace(passwordHash))
+                throw new ArgumentException("Password hash cannot be empty.", nameof(passwordHash));
+
+            UserName = username;
+            PasswordHash = passwordHash;
+        }
 
     }
 }

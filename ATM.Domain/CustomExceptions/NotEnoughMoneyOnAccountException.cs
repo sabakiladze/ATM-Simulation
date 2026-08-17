@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace ATM.Domain.CustomExceptions
 {
-    internal class NotEnoughMoneyOnAccount
+    [Serializable]
+
+    public class NotEnoughMoneyOnAccountException : Exception
     {
+        public NotEnoughMoneyOnAccountException() : base("Not enough money on account.") { }
+        public NotEnoughMoneyOnAccountException(string message) : base(message) { }
+
+        public NotEnoughMoneyOnAccountException(string message, Exception inner):base(message, inner) { }
     }
 }

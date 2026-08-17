@@ -6,7 +6,18 @@ using System.Threading.Tasks;
 
 namespace ATM.Domain.CustomExceptions
 {
-    internal class ThisIsYourOnlyAccount
+    [Serializable]
+
+    public class ThisIsYourOnlyAccountException : Exception
     {
+        public ThisIsYourOnlyAccountException() : base("Cannot close the last account of the client.")
+        {
+        }
+        public ThisIsYourOnlyAccountException(string message) : base(message)
+        {
+        }
+        public ThisIsYourOnlyAccountException(string message, Exception inner) : base(message, inner)
+        {
+        }
     }
 }

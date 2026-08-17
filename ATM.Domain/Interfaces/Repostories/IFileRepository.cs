@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace ATM.Domain.Interfaces.Repostories
 {
-    internal interface IFileRepository
+    public  interface IFileRepository<T>
     {
+        Task<List<T>> GetAllLineAsync();
+        Task SaveAllAsync(List<T> data);
     }
 }

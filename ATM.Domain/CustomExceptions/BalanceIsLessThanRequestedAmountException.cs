@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace ATM.Domain.CustomExceptions
 {
-    internal class BalanceIsLessThanRequestedAmountException
+    [Serializable]
+
+    public class BalanceIsLessThanRequestedAmountException : Exception 
     {
+        public BalanceIsLessThanRequestedAmountException() : base("Balance is less than requested amount.") { }
+        public BalanceIsLessThanRequestedAmountException(string message) : base(message) { }
+        public BalanceIsLessThanRequestedAmountException(string message, Exception inner):base(message, inner) { }
+        
     }
 }

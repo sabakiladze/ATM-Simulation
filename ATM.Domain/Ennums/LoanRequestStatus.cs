@@ -6,14 +6,13 @@ using System.Threading.Tasks;
 
 namespace ATM.Domain.Ennums
 {
-    public class LoanStatus
-    {
-        public  enum Status
+    
+        public  enum LoanStatus
         {
             Approved, 
-            Pennding,
+            Pending,
             Rejected
 
         }
-    }
+    
 }

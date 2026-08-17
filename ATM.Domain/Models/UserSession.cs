@@ -8,5 +8,7 @@ namespace ATM.Domain.Models
 {
     public  class UserSession
     {
+        public Guid Id { get; private set; }
+        public  User ? User { get; private set; }
     }
 }
