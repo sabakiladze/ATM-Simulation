@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace ATM.Domain.Interfaces.Repostories
 {
-    public interface IFileRepository<T>
+    public interface IRepository<T> where T : class 
     {
-        Task<List<T>> ReadAllLinesAsync();
-        Task SaveAllAsync(List<T> data);
+        Task<T?> GetByIdAsync(Guid Id);
+        Task<IEnumerable<T>> GetAllAsync();
+        
     }
+
 }

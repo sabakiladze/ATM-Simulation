@@ -1,20 +1,21 @@
 ﻿using ATM.Domain.Interfaces.Repostories;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.IO;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace ATM.Infrastructure
+namespace ATM.Infrastructure.Persistence
+
 {
     public class FileRepository<T> : IFileRepository<T>
     {
         private readonly string _filePath;
         public FileRepository(string filePath)
         {
-            string directory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Files"); if (!Directory.Exists(directory))
+            string directory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Files"); 
+            if (!Directory.Exists(directory))
             {
                 Directory.CreateDirectory(directory);
             }
@@ -48,6 +49,8 @@ namespace ATM.Infrastructure
             }
 
         }
+
+      
 
         public async Task SaveAllAsync(List<T> data)
         {
