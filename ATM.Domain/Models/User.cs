@@ -2,15 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace ATM.Domain.Models
 {
     public abstract class User
     {
-        public Guid Id { get;} = Guid.NewGuid();
-        public  string UserName { get; }
-        public string PasswordHash { get;}
+        public Guid Id { get; } = Guid.NewGuid();
+        public string UserName { get; }
+        public string PasswordHash { get; }
 
 
 
@@ -26,6 +27,16 @@ namespace ATM.Domain.Models
             UserName = username;
             PasswordHash = passwordHash;
         }
+
+        [JsonConstructor]
+        public User(Guid id, string userName, string passwordHash)
+        {
+            Id = id;
+            UserName = userName;
+            PasswordHash = passwordHash;
+
+        }
+       
 
     }
 }

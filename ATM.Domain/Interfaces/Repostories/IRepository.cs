@@ -8,9 +8,11 @@ namespace ATM.Domain.Interfaces.Repostories
 {
     public interface IRepository<T> where T : class 
     {
-        Task<T?> GetByIdAsync(Guid Id);
+        Task<T?> GetByIdAsync(Guid id);
         Task<IEnumerable<T>> GetAllAsync();
-        
+        Task SaveAsync(T entity);
+        Task DeleteAsync(Guid id);
+
     }
 
 }

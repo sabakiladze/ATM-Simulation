@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ATM.Domain.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace ATM.Domain.Interfaces.Repostories
 {
-    public interface IFileRepository<T>
+    public interface ILoanRepository:IRepository<LoanRequest>
     {
-        Task<List<T>> ReadAllLinesAsync();
-        Task SaveAllAsync(List<T> data);
+        
     }
 }
